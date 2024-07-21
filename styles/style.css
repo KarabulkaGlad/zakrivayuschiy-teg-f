@@ -135,14 +135,13 @@
 
 .card__title {
   padding: 3px 10px;
-  font-weight: var(--main-font-weight-bold);
+  font-variation-settings: "wght" var(--main-font-weight-bold);
   font-size: 18px;
   line-height: 22px;
 }
 
 .card__img-block {
   position: relative;
-  max-height: 500px;
   border-bottom: 4px solid currentColor;
   border-top: 2px solid currentColor;
 }
