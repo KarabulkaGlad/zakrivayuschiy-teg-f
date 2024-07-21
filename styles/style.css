@@ -23,9 +23,12 @@
 }
 
 .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  padding: 100px clamp(0px, 35.45vw - 150px, 370px);
+  padding: 100px 0;
   font-family: var(--main-font, Arial, sans-serif);
   font-variation-settings: "wght" 400;
   color: var(--accent-color, #000);
@@ -36,7 +39,8 @@
 .header {
   margin-bottom: 100px;
   padding-top: clamp(120px, 10vw, 136px);
-  font-family: var(--accent-font, Arial, sans-serif);
+  font-family: var(--accent-font, Arial, fantasy);
+  min-width: var(--content-size-limiter, 700px);
 }
 
 .header__text-block {
@@ -48,16 +52,19 @@
   font-weight: var(--main-font-weight-normal);
 }
 
-.header__title {
-  --size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-  font-size: var(--size);
-  line-height: var(--size);
+.header__logo {
+  font-size: var(--logo-font-size, clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem));
+  line-height: var(--logo-font-size, clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem));
+  text-decoration: none;
 }
 
-.header__subtitle {
-  --size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-  font-size: var(--size);
-  line-height: var(--size);
+.header__logo:focus-visible {
+  outline: 2px solid currentColor;
+}
+
+.header__title {
+  font-size: var(--title-font-size, clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem));
+  line-height: var(--title-font-size, clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem));
 }
 
 .header__theme-menu {
@@ -80,6 +87,7 @@
   font-weight: var(--main-font-weight-normal);
   font-size: 14px;
   line-height: 14px;
+  transition: opacity 0.3s;
   background-color: inherit;
   color: currentColor;
 }
@@ -95,10 +103,6 @@
   animation: arrow_moving 0.5s infinite alternate ease-in-out;
 }
 
-.theme-menu__button:not(:disabled) {
-  transition: opacity 0.2s;
-}
-
 .theme-menu__button:not(:disabled):focus {
   outline: none;
 }
@@ -108,8 +112,8 @@
 }
 
 .theme-menu__button:not(:disabled):hover {
-  cursor: pointer;
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .theme-menu__button:not(:disabled)::after {
@@ -122,7 +126,7 @@
   bottom: -2px;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.2s ease-out;
+  transition: transform 0.3s ease;
 }
 
 .theme-menu__button:not(:disabled):focus-visible::after {
@@ -131,6 +135,7 @@
 
 .card {
   margin-bottom: 50px;
+  max-width: var(--content-size-limiter, 700px);
 }
 
 .card__title {
@@ -142,8 +147,9 @@
 
 .card__img-block {
   position: relative;
-  border-bottom: 4px solid currentColor;
+  border-bottom: 2px solid currentColor;
   border-top: 2px solid currentColor;
+  min-height: var(--content-size-limiter, 700px);
 }
 
 .card__img-block::after {
@@ -154,7 +160,7 @@
   position: absolute;
   right: clamp(11px, 1.8vw, 25px);
   top: 25px;
-  font-family: var(--accent-font, Arial, sans-serif);
+  font-family: var(--accent-font, Arial, fantasy);
   font-weight: var(--main-font-weight-normal);
   font-size: 14px;
   line-height: 14px;
@@ -174,8 +180,9 @@
 }
 
 .card__img {
-  width: 100%;
   object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .img-funny-cat {
@@ -192,7 +199,6 @@
 
 .img-perfect-cat {
   filter: blur(2px) brightness(120%);
-
 }
 
 .img-lots-of-kittens {
@@ -226,10 +232,6 @@
   gap: 5px;
 }
 
-.sparks {
-  opacity: 0;
-}
-
 .card__icon-button {
   background-color: inherit;
   width: 36px;
@@ -245,60 +247,6 @@
   outline-color: var(--accent-color, #000);
 }
 
-.like-icon .core {
-  fill: transparent;
-  transition: fill 0.3s linear 0.03s;
-}
-
-.like-icon:hover .core {
-  fill: var(--heart-accent-color, #000);
-  transition: fill 0.3s linear;
-}
-
-.like-icon:active .core {
-  fill: var(--heart-main-body-color, #f00);
-  transition: fill 0.3s linear;
-}
-
-.like-icon .main-body {
-  fill: transparent;
-  transition: fill 0.3s linear;
-}
-
-.like-icon:hover .main-body {
-  fill: var(--heart-accent-color,#000);
-  transition: fill 0.3s linear 0.03s;
-}
-
-.like-icon:active .main-body {
-  fill: var(--heart-main-body-color, #f00);
-  transition: fill 0.3s linear 0.03s;
-}
-
-.like-icon.is-liked .heart {
-  transform-origin: center;
-  animation: like-icon-is-liked 0.3s ease-in 0.1s;
-}
-
-.like-icon.is-liked .core {
-  fill: var(--heart-main-body-color, #f00);
-  transition: fill 0.3s linear;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--heart-main-body-color, #f00);
-  transition: fill 0.3s linear 0.03s;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--heart-main-body-color, #f00);
-  transition: fill 0.3s linear 0.06s;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks 0.3s ease-in 0.3s;
-}
-
 .card__like-button {
   font-weight: var(--main-font-weight-normal);
   min-width: 130px;
@@ -306,18 +254,14 @@
   background-color: inherit;
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-}
-
-.footer__button {
+.content__save-button {
+  margin: 50px auto 0;
+  min-width: clamp(310px, 40vw, 340px);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px 0;
   gap: 8px;
-  min-width: 339px;
   font-size: 14px;
   line-height: 90%;
   background-color: var(--bg-color, #fff);
@@ -325,7 +269,7 @@
 
 .button {
   position: relative;
-  font-family: var(--accent-font, Arial, sans-serif);
+  font-family: var(--accent-font, Arial, fantasy);
   font-weight: var(--main-font-weight-normal);
   border: 2px solid var(--accent-color, #000);
   cursor: pointer;
@@ -358,13 +302,12 @@
 }
 
 .button__text,
-.footer__floppy {
+.content__floppy {
   mix-blend-mode: difference;
 }
 
-.floppy {
+.content__floppy {
   width: 21px;
-  aspect-ratio: 1 / 1;
 }
 
 .dialog-window {
@@ -372,7 +315,7 @@
   padding: 30px clamp(30px, 52px - 2vw, 42px);
   color: var(--accent-color, #000);
   background-color: var(--bg-color, #fff);
-  font-family: var(--accent-font, Arial, sans-serif);
+  font-family: var(--accent-font, Arial, fantasy);
   font-weight: var(--main-font-weight-normal);
   text-transform: uppercase;
 }
@@ -409,8 +352,15 @@
 }
 
 .dialog-window__floppy {
-  min-width: 39px;
+  width: 95px;
 }
 
+@media (width < 1440px) {
+  .content__save-button {
+    flex-direction: column;
+  }
 
-
+  .content__floppy {
+    width: 28px;
+  }
+}

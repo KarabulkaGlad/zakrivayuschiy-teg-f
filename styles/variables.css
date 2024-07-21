@@ -17,15 +17,8 @@
   --bg-gradient: repeating-linear-gradient(90deg, transparent 2px 4px, #d3d3d3 4px 6px),
   repeating-linear-gradient(transparent 2px 4px, #d3d3d3 4px 6px),
   linear-gradient(#e7e7e7 0.01vh, #1a1a1a );
+  --logo-font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  --title-font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  --content-size-limiter: clamp(375px, calc(50vw + 100px), 700px);
 }
 
-@media (width < 1440px) {
-  .footer__button {
-    flex-direction: column;
-    min-width: 312px;
-  }
-
-  .footer__floppy {
-    width: 28px;
-  }
-}
