@@ -20,7 +20,7 @@
   linear-gradient(#007f0c, #004306);
 }
 
-.theme-dark .overlay::after{
+.theme-dark .overlay::after {
   content: '';
   position: absolute;
   inset: 0;
