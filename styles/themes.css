@@ -4,3 +4,59 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+:root.theme-dark {
+  --main-font-weight-normal: 465;
+  --main-font-weight-bold: 785;
+  --bg-color: #000;
+  --accent-color: #00CC14;
+  --button-text-color: #00CC14;
+  --heart-contour-color: #00CC14;
+  --shadow-color: #00CC14;
+  --button-overlay-color: #00CC14;
+  --label-shadow-color: #000;
+  --bg-gradient: repeating-linear-gradient(90deg, transparent 2px 4px, #000 4px 6px),
+  repeating-linear-gradient(transparent 2px 4px, #000 4px 6px),
+  linear-gradient(#007f0c, #004306);
+}
+
+.theme-dark .overlay::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 0.2);
+}
+
+:root.theme-light {
+  --main-font-weight-normal: 400;
+  --main-font-weight-bold: 700;
+  --bg-color: #fff;
+  --accent-color: #000;
+  --button-text-color: #fff;
+  --heart-contour-color: #000;
+  --shadow-color: #000;
+  --button-overlay-color: #000;
+  --label-shadow-color: #fff;
+  --bg-gradient: repeating-linear-gradient(90deg, transparent 2px 4px, #d3d3d3 4px 6px),
+  repeating-linear-gradient(transparent 2px 4px, #d3d3d3 4px 6px),
+  linear-gradient(#e7e7e7 0.01vh, #1a1a1a );
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --main-font-weight-normal: 400;
+    --main-font-weight-bold: 700;
+    --bg-color: #fff;
+    --accent-color: #000;
+    --button-text-color: #fff;
+    --heart-contour-color: #000;
+    --shadow-color: #000;
+    --button-overlay-color: #000;
+    --label-shadow-color: #fff;
+    --bg-gradient: repeating-linear-gradient(90deg, transparent 2px 4px, #d3d3d3 4px 6px),
+    repeating-linear-gradient(transparent 2px 4px, #d3d3d3 4px 6px),
+    linear-gradient(#e7e7e7 0.01vh, #1a1a1a );
+  }
+}

@@ -1,1 +1,31 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+:root {
+  --main-font: 'Inter-Variable';
+  --main-font-weight-normal: 400;
+  --main-font-weight-bold: 700;
+  --accent-font: 'Press Start 2P';
+  --bg-color: #fff;
+  --accent-color: #000;
+  --button-text-color: #fff;
+  --heart-contour-color: #000;
+  --heart-main-body-color: #f00;
+  --heart-accent-color: #000;
+  --shadow-color: #000;
+  --button-overlay-color: #000;
+  --label-shadow-color: #fff;
+  --bg-gradient: repeating-linear-gradient(90deg, transparent 2px 4px, #d3d3d3 4px 6px),
+  repeating-linear-gradient(transparent 2px 4px, #d3d3d3 4px 6px),
+  linear-gradient(#e7e7e7 0.01vh, #1a1a1a );
+}
+
+@media (width < 1440px) {
+  .footer__button {
+    flex-direction: column;
+    min-width: 312px;
+  }
+
+  .footer__floppy {
+    width: 28px;
+  }
+}
