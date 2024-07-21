@@ -27,7 +27,7 @@
   min-block-size: 100dvb;
   padding: 100px clamp(0px, 35.45vw - 150px, 370px);
   font-family: var(--main-font, Arial, sans-serif);
-  font-weight: var(--main-font-weight-normal);
+  font-variation-settings: "wght" 400;
   color: var(--accent-color, #000);
   background-image: var(--bg-gradient);
   background-attachment: fixed;
